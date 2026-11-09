@@ -14,13 +14,13 @@
 <style>
 
 :root{
---bg:#0f1115;
---surface:#171a21;
---border:#262b36;
---text:#f2f2f2;
---muted:#b5b8c0;
---gold:#c9a227;
---gold-light:#e2c35b;
+--bg:#f6f4ee;
+--surface:#ffffff;
+--border:#e3ddd0;
+--text:#222222;
+--muted:#656565;
+--accent:#b68d40;
+--accent-light:#d5b977;
 }
 
 *{
@@ -46,18 +46,15 @@ color:inherit;
 }
 
 .container{
-width:min(1150px,90%);
+width:min(1150px,92%);
 margin:auto;
 }
 
-/* NAVBAR */
-
 nav{
-position:fixed;
+position:sticky;
 top:0;
-width:100%;
+background:rgba(246,244,238,.95);
 backdrop-filter:blur(12px);
-background:rgba(15,17,21,.85);
 border-bottom:1px solid var(--border);
 z-index:999;
 }
@@ -71,29 +68,22 @@ padding:18px 0;
 
 .logo{
 font-family:'Playfair Display',serif;
-font-size:1.3rem;
+font-size:1.4rem;
 font-weight:700;
-color:var(--gold);
-letter-spacing:1px;
+color:var(--accent);
 }
 
 .nav-links{
 display:flex;
-gap:30px;
-}
-
-.nav-links a{
-transition:.3s;
+gap:24px;
 }
 
 .nav-links a:hover{
-color:var(--gold);
+color:var(--accent);
 }
 
-/* HERO */
-
 .hero{
-min-height:100vh;
+min-height:85vh;
 display:flex;
 align-items:center;
 text-align:center;
@@ -105,95 +95,81 @@ width:100%;
 
 .hero h1{
 font-family:'Playfair Display',serif;
-font-size:clamp(3rem,8vw,6rem);
+font-size:clamp(3rem,8vw,5.5rem);
 line-height:1.1;
 margin-bottom:20px;
 }
 
 .hero p{
-max-width:800px;
+max-width:750px;
 margin:auto;
 font-size:1.15rem;
 color:var(--muted);
 }
 
-.hero-btn{
+.btn{
 display:inline-block;
 margin-top:35px;
-padding:14px 30px;
-border:1px solid var(--gold);
-color:var(--gold);
-transition:.3s;
+padding:14px 28px;
+background:var(--accent);
+color:white;
+border-radius:8px;
 }
-
-.hero-btn:hover{
-background:var(--gold);
-color:black;
-}
-
-/* Sections */
 
 section{
-padding:100px 0;
+padding:90px 0;
 }
 
 .section-title{
 font-family:'Playfair Display',serif;
-font-size:2.3rem;
-margin-bottom:25px;
+font-size:2.5rem;
 text-align:center;
-color:var(--gold);
+margin-bottom:20px;
+color:var(--accent);
 }
 
-.section-description{
+.section-text{
+max-width:800px;
+margin:auto;
 text-align:center;
 color:var(--muted);
-max-width:750px;
-margin:auto;
 }
-
-/* Cards */
 
 .grid{
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:24px;
-margin-top:50px;
+margin-top:40px;
 }
 
 .card{
 background:var(--surface);
 border:1px solid var(--border);
-padding:28px;
 border-radius:12px;
+padding:28px;
 transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-6px);
-border-color:var(--gold);
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 .card h3{
 margin-bottom:10px;
-color:var(--gold-light);
+color:var(--accent);
 }
 
-/* Quote */
-
 .quote{
-background:var(--surface);
-border-left:4px solid var(--gold);
-padding:40px;
 max-width:900px;
 margin:auto;
-text-align:center;
-font-size:1.2rem;
+background:white;
+padding:40px;
+border-left:4px solid var(--accent);
+border-radius:10px;
 font-style:italic;
 color:var(--muted);
 }
-
-/* Contact */
 
 .contact{
 text-align:center;
@@ -201,30 +177,21 @@ text-align:center;
 
 .contact-btn{
 display:inline-block;
-margin-top:20px;
-background:var(--gold);
-color:black;
 padding:14px 28px;
-font-weight:600;
+background:var(--accent);
+color:white;
 border-radius:8px;
+margin-top:25px;
 }
-
-/* Footer */
 
 footer{
 border-top:1px solid var(--border);
-padding:35px;
+padding:30px;
 text-align:center;
 color:var(--muted);
 }
 
-/* MOBILE */
-
-@media(max-width:900px){
-
-.grid{
-grid-template-columns:1fr;
-}
+@media(max-width:768px){
 
 .nav-content{
 flex-direction:column;
@@ -234,7 +201,6 @@ gap:15px;
 .nav-links{
 flex-wrap:wrap;
 justify-content:center;
-gap:15px;
 }
 
 .hero h1{
@@ -252,11 +218,12 @@ font-size:3rem;
 <div class="container nav-content">
 
 <div class="logo">
-THE REFLECTIVE MIND
+The Reflective Mind
 </div>
 
 <div class="nav-links">
 <a href="#about">About</a>
+<a href="#essays">Essays</a>
 <a href="#topics">Topics</a>
 <a href="#notes">Reading Notes</a>
 <a href="#contact">Contact</a>
@@ -272,12 +239,11 @@ THE REFLECTIVE MIND
 <h1>The Reflective Mind</h1>
 
 <p>
-Reflections on ideas, society, language, knowledge, and the pursuit of understanding.
-A space dedicated to thoughtful inquiry, careful observation, and lifelong learning.
+Exploring ideas, books, society, language, and the enduring questions that shape human understanding.
 </p>
 
-<a href="#topics" class="hero-btn">
-Explore Ideas
+<a href="#essays" class="btn">
+Explore Essays
 </a>
 
 </div>
@@ -290,10 +256,45 @@ Explore Ideas
 
 <h2 class="section-title">About</h2>
 
-<p class="section-description">
-The Reflective Mind is a personal intellectual journal exploring questions that matter.
-Rather than chasing immediacy, it values careful reflection, curiosity, and long-term thinking.
+<p class="section-text">
+The Reflective Mind is an independent collection of essays, reading notes, and reflections.
+Its purpose is simple: to think carefully, learn continuously, and document ideas worth revisiting.
 </p>
+
+</div>
+
+</section>
+
+<section id="essays">
+
+<div class="container">
+
+<h2 class="section-title">Featured Essays</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Why Reflection Matters</h3>
+<p>
+In an age of speed, thoughtful reflection becomes increasingly valuable.
+</p>
+</div>
+
+<div class="card">
+<h3>Reading Beyond Information</h3>
+<p>
+Books do more than inform. They expand the frameworks through which we understand reality.
+</p>
+</div>
+
+<div class="card">
+<h3>Language and Perspective</h3>
+<p>
+Learning a language means learning a new way of noticing the world.
+</p>
+</div>
+
+</div>
 
 </div>
 
@@ -309,44 +310,32 @@ Rather than chasing immediacy, it values careful reflection, curiosity, and long
 
 <div class="card">
 <h3>International Affairs</h3>
-<p>
-Observations on diplomacy, geopolitics, institutions, and global change.
-</p>
+<p>Diplomacy, geopolitics and global developments.</p>
 </div>
 
 <div class="card">
 <h3>Society</h3>
-<p>
-Essays examining culture, technology, and contemporary life.
-</p>
+<p>Culture, institutions and contemporary challenges.</p>
 </div>
 
 <div class="card">
 <h3>Language</h3>
-<p>
-Thoughts on communication, learning, meaning, and literacy.
-</p>
+<p>Communication, meaning and language learning.</p>
 </div>
 
 <div class="card">
 <h3>Philosophy</h3>
-<p>
-Questions concerning wisdom, ethics, purpose, and understanding.
-</p>
+<p>Questions concerning wisdom and understanding.</p>
 </div>
 
 <div class="card">
 <h3>Science</h3>
-<p>
-Reflections inspired by discovery, curiosity, and scientific thinking.
-</p>
+<p>Curiosity, discovery and scientific thinking.</p>
 </div>
 
 <div class="card">
 <h3>Personal Notes</h3>
-<p>
-Ideas worth revisiting, lessons worth remembering.
-</p>
+<p>Thoughts worth revisiting.</p>
 </div>
 
 </div>
@@ -362,7 +351,26 @@ Ideas worth revisiting, lessons worth remembering.
 <h2 class="section-title">Reading Notes</h2>
 
 <div class="quote">
-“Reading is not merely gathering information. It is learning how to think through the minds of others.”
+“Reading is not collecting information. Reading is borrowing another mind long enough to expand your own.”
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>Meditations</h3>
+<p>Character, discipline and resilience.</p>
+</div>
+
+<div class="card">
+<h3>The Republic</h3>
+<p>Justice, order and political thought.</p>
+</div>
+
+<div class="card">
+<h3>Scientific Revolutions</h3>
+<p>How paradigms shape knowledge.</p>
+</div>
+
 </div>
 
 </div>
@@ -375,11 +383,11 @@ Ideas worth revisiting, lessons worth remembering.
 
 <h2 class="section-title">Contact</h2>
 
-<p class="section-description">
-Open to thoughtful discussions, ideas, and intellectual correspondence.
+<p class="section-text">
+Open to thoughtful conversations, feedback and exchange of ideas.
 </p>
 
-<a href="mailto:youremail@example.com" class="contact-btn">
+<a class="contact-btn" href="mailto:youremail@example.com">
 Get In Touch
 </a>
 
@@ -388,7 +396,7 @@ Get In Touch
 </section>
 
 <footer>
-© 2026 The Reflective Mind
+The Reflective Mind · Essays, Notes & Reflections
 </footer>
 
 </body>
